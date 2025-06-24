@@ -27,34 +27,31 @@ MediCare is a fully responsive medical store website built using HTML, CSS, and 
 
 ## 📁 Project Structure
 
-Med Website/
-│
-├── index.html
-├── login.html
-├── register.html
-├── search.html
-├── contact.html
-├── medicine.html
-├── cart.html
-├── order.html
-│
-├── css/
-│ └── style.css
-│
-├── js/
-│ └── script.js
-│ ├── medicines.js 
-│ └── medicine.js 
-│
-├── images/
-│ ├── logo.png
-│ ├── banner.png
-│ ├── medicine1.jpg
-│ ├── medicine2.jpg
-│ └── medicine3.jpg
-│
-└── README.md
+- `index.html` – Home page
+- `login.html` – Login form
+- `register.html` – User registration page
+- `search.html` – Search functionality
+- `contact.html` – Contact form
+- `medicine.html` – Medicine detail display
+- `cart.html` – Cart page showing added items
+- `order.html` – Order success confirmation
 
+### 📂 css/
+- `style.css` – All styles for the website
+
+### 📂 js/
+- `script.js` – Form validation, cart logic, etc.
+- `medicines.js` – Medicine data
+- `medicine.js` – Dynamic medicine details loader
+
+### 📂 images/
+- `logo.png` – Website logo
+- `banner.png` – Homepage banner
+- `medicine1.jpg` – Sample medicine image
+- `medicine2.jpg`
+- `medicine3.jpg`
+
+- `README.md` – Project overview and instructions
 ---
 
 ## 📦 How to Run Locally
@@ -68,5 +65,7 @@ Med Website/
 ---
 
 👩‍💻 Author
-Kavita, Computer Science Graduate
+**Kavita**  
+BSc. (Hons) Computer Science Graduate | Aspiring Data Analyst & Web Developer  
+
 
