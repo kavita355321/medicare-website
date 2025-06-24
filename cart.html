@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart - MediCare</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="images/logo.png" alt="MediCare Logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="register.html">Register</a>
+      <a href="login.html">Login</a>
+      <a href="search.html">Search</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html" class="cart-link">
+        🛒 Cart <span id="cart-count" class="cart-count">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Main Cart Section -->
+  <main>
+    <h2 style="text-align: center;">Your Cart</h2>
+    <div id="cartItems" class="medicine-grid"></div>
+    <div id="cartSummary" style="text-align:center; margin-top: 20px;"></div>
+    <div class="place-order">
+      <button onclick="placeOrder()">Place Order</button>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MediCare Store. All rights reserved.</p>
+  </footer>
+
+  <script src="js/medicines.js"></script>
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItemsContainer = document.getElementById("cartItems");
+    const summaryContainer = document.getElementById("cartSummary");
+
+    function updateCartCount() {
+      const countEl = document.getElementById("cart-count");
+      if (countEl) countEl.textContent = cart.length;
+    }
+
+    function renderCart() {
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+        summaryContainer.innerHTML = "";
+        return;
+      }
+
+      let total = 0;
+      let quantity = 0;
+      cartItemsContainer.innerHTML = "";
+
+      cart.forEach(id => {
+        const med = medicines.find(m => m.id === id);
+        if (med) {
+          total += med.price;
+          quantity += 1;
+          cartItemsContainer.innerHTML += `
+            <div class="medicine-card">
+              <img src="${med.image}" alt="${med.name}">
+              <h3>${med.name}</h3>
+              <p>${med.description}</p>
+              <p><strong>₹${med.price}</strong></p>
+              <button onclick="removeFromCart('${med.id}')">Remove</button>
+            </div>
+          `;
+        }
+      });
+
+      summaryContainer.innerHTML = `
+        <h3>Total Items: ${quantity}</h3>
+        <h3>Total Price: ₹${total}</h3>
+      `;
+    }
+
+    function removeFromCart(id) {
+      const updatedCart = cart.filter(medId => medId !== id);
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      location.reload(); // refresh to re-render cart
+    }
+
+    // INIT
+    updateCartCount();
+    renderCart();
+  </script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>

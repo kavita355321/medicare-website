@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Successful | MediCare</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header>
+  <img src="images/logo.png" alt="MediCare Logo" class="logo">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="search.html">Search</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main style="text-align:center; padding: 40px;">
+  <h1>✅ Order Placed Successfully!</h1>
+  <p>Your order ID is <span id="order-id"></span></p>
+  <p>Thank you for shopping with MediCare!</p>
+    <div class="btn-container">
+        <a href="index.html" class="home-btn">Back to Home</a>
+    </div>
+    <script>
+    window.onload = function () {
+  const orderId = Math.floor(Math.random() * 100000);
+  document.getElementById("order-id").innerText = `#MDC${orderId}`;
+}
+</script>
+</main>
+
+<footer>
+  <p>&copy; 2025 MediCare Store. All rights reserved.</p>
+</footer>
+</body>
+</html>
