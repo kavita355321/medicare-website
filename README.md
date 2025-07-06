@@ -64,9 +64,10 @@ MediCare is a fully responsive medical store website built using HTML, CSS, and 
 
 ---
 
-👩‍💻 Author
-**Kavita** 💼 BSc Hons. Computer Science | Delhi University
-📫 Email: kavita355321@gmail.com
+## 👩‍💻 About Me
+**Kavita**
+🎓 BSc Hons. Computer Science | Delhi University  
+📫 Email: kavita355321@gmail.com  
 📍 New Delhi, India
 
 
