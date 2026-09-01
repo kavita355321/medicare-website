@@ -1,73 +1,215 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>MediCare | Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="MediCare is an accessible pharmacy catalogue portfolio demo built with HTML, CSS and vanilla JavaScript."
+    />
+    <meta name="theme-color" content="#0a6559" />
+    <title>MediCare | Everyday health, made clearer</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <!-- Header -->
-  <header>
-    <img src="images/logo.png" alt="MediCare Logo" class="logo">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="register.html">Register</a>
-      <a href="login.html">Login</a>
-      <a href="search.html">Search</a>
-      <a href="contact.html">Contact</a>
-  <!-- <a href="cart.html">Cart</a> -->
-      <a href="cart.html" class="cart-link">
-      🛒 Cart <span id="cart-count" class="cart-count">0</span>
+    <div class="demo-banner" role="note">
+      <span>Portfolio demo</span>
+      <p>No real purchases, accounts, prescriptions or medical advice.</p>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="MediCare home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>MediCare<small>Everyday health store</small></span>
       </a>
 
-    </nav>
-  </header>
+      <button
+        class="menu-button"
+        id="menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span aria-hidden="true">Menu</span>
+      </button>
 
-  <!-- Banner -->
-  <section class="banner">
-    <img src="images/banner.png" alt="Medical Store Banner">
-  </section>
+      <nav id="site-nav" class="site-nav" aria-label="Primary" data-open="false">
+        <a href="#shop">Shop</a>
+        <a href="#services">Services</a>
+        <a href="#safety">Safety</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-  <main>
-  <h2 style="text-align:center;">Available Medicines</h2>
-  <div id="medicine-list" class="medicine-grid"></div>
-  </main>
+      <button class="basket-button" id="open-basket" type="button">
+        Demo basket <span id="basket-count" aria-label="items in basket">0</span>
+      </button>
+    </header>
 
+    <main id="main-content">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Designed around everyday wellbeing</p>
+          <h1>Health essentials, without the hard sell.</h1>
+          <p class="hero-intro">
+            Explore a clear, accessible catalogue experience designed to help people
+            find everyday care products with confidence.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#shop">Explore the catalogue</a>
+            <a class="text-link" href="#safety">Read the safety guidance</a>
+          </div>
+          <ul class="trust-list" aria-label="Service highlights">
+            <li>Accessible by design</li>
+            <li>Transparent pricing</li>
+            <li>Privacy-first demo</li>
+          </ul>
+        </div>
 
-  <!-- Popular Medicines -->
-   <!--
-  <section class="medicines">
-    <h2>Popular Medicines</h2>
-    <div class="medicine-grid">
-      <div class="medicine-card">
-        <img src="images/medicine1.jpg" alt="Paracetamol">
-        <h3>Paracetamol</h3>
-        <p>Used for fever and pain relief</p>
+        <div class="hero-visual" aria-label="MediCare design illustration">
+          <div class="hero-card hero-card-main">
+            <span class="hero-icon" aria-hidden="true">+</span>
+            <p>Care starts with clarity</p>
+            <strong>Simple choices.<br />Useful information.</strong>
+          </div>
+          <div class="hero-card hero-card-small">
+            <span>Open today</span>
+            <strong>08:00–20:00</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section services" id="services" aria-labelledby="services-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">How this demo helps</p>
+            <h2 id="services-title">Thoughtful services, clearly explained</h2>
+          </div>
+          <p>
+            A realistic front-end concept focused on usability, responsible language and
+            inclusive interaction patterns.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article>
+            <span class="service-number">01</span>
+            <h3>Find essentials</h3>
+            <p>Search and filter a concise catalogue without navigating away.</p>
+          </article>
+          <article>
+            <span class="service-number">02</span>
+            <h3>Review a basket</h3>
+            <p>Change quantities in a persistent local demo basket—nothing is purchased.</p>
+          </article>
+          <article>
+            <span class="service-number">03</span>
+            <h3>Use any device</h3>
+            <p>Responsive layout, keyboard controls and reduced-motion support are built in.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section catalogue" id="shop" aria-labelledby="catalogue-title">
+        <div class="section-heading catalogue-heading">
+          <div>
+            <p class="eyebrow">Demo catalogue</p>
+            <h2 id="catalogue-title">Everyday care, easy to browse</h2>
+          </div>
+          <p id="result-count" aria-live="polite">6 items</p>
+        </div>
+
+        <div class="filters" role="search">
+          <label>
+            <span>Search products</span>
+            <input
+              id="product-search"
+              type="search"
+              placeholder="Try ‘travel’ or ‘first aid’"
+              autocomplete="off"
+            />
+          </label>
+          <label>
+            <span>Category</span>
+            <select id="category-filter"></select>
+          </label>
+        </div>
+
+        <div class="product-grid" id="product-grid"></div>
+      </section>
+
+      <section class="section safety" id="safety" aria-labelledby="safety-title">
+        <div class="safety-mark" aria-hidden="true">i</div>
+        <div>
+          <p class="eyebrow">Use medicines safely</p>
+          <h2 id="safety-title">A website should never replace professional advice.</h2>
+          <p>
+            Product examples on this site are fictional catalogue content. Always read the
+            label and speak to a pharmacist or qualified healthcare professional when you
+            need individual guidance. In an emergency, contact your local emergency service.
+          </p>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-copy">
+          <p class="eyebrow">Try the interaction</p>
+          <h2 id="contact-title">A contact form that respects your privacy.</h2>
+          <p>
+            This form demonstrates accessible validation only. It does not transmit or save
+            any information.
+          </p>
+          <dl>
+            <div><dt>Demo hours</dt><dd>Monday–Saturday, 08:00–20:00</dd></div>
+            <div><dt>Response</dt><dd>Simulated on this page only</dd></div>
+          </dl>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required maxlength="80" />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required maxlength="120" />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required maxlength="500"></textarea>
+
+          <button class="button button-primary" type="submit">Submit demo form</button>
+          <p class="form-status" id="contact-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>MediCare<small>Front-end portfolio project</small></span>
+      </a>
+      <p>Built by Kavita as a responsible UI engineering case study.</p>
+      <p>© <span id="year"></span> MediCare demo</p>
+    </footer>
+
+    <dialog class="basket-dialog" id="basket-dialog" aria-labelledby="basket-title">
+      <div class="basket-header">
+        <div>
+          <p class="eyebrow">Saved on this device only</p>
+          <h2 id="basket-title">Demo basket</h2>
+        </div>
+        <button class="icon-button" id="close-basket" type="button" aria-label="Close basket">×</button>
       </div>
-      <div class="medicine-card">
-        <img src="images/medicine2.jpg" alt="Ibuprofen">
-        <h3>Ibuprofen</h3>
-        <p>Anti-inflammatory and painkiller</p>
+      <div class="basket-body" id="basket-body"></div>
+      <div class="basket-summary">
+        <span>Demo total</span>
+        <strong id="basket-total">£0.00</strong>
       </div>
-      <div class="medicine-card">
-        <img src="images/medicine3.jpg" alt="Cough Syrup">
-        <h3>Cough Syrup</h3>
-        <p>Soothes dry and wet cough</p>
-      </div>
-    </div>
-  </section>
--->
+      <p class="basket-note">Checkout is intentionally unavailable—this is not a real pharmacy.</p>
+    </dialog>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 MediCare Store. All rights reserved.</p>
-  </footer>
-
-  <script src="js/medicines.js"></script>
-  <script src="js/script.js"></script>
-
-
-</body>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  </body>
 </html>
+
